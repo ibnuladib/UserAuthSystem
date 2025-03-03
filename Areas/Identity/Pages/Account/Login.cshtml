@@ -1,0 +1,53 @@
+﻿@page
+@model LoginModel
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-lg mt-5">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4">Welcome back</h2>
+                    <h4 class="text-center text-muted mb-4">Sign in to continue</h4>
+
+                    <form id="account" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Input.Email" class="form-label">Email</label>
+                            <input asp-for="Input.Email" class="form-control form-control-lg"
+                                   autocomplete="username"
+                                   aria-required="true"
+                                   placeholder="name@example.com" />
+                            <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Password" class="form-label">Password</label>
+                            <input asp-for="Input.Password" class="form-control form-control-lg"
+                                   autocomplete="current-password"
+                                   aria-required="true"
+                                   placeholder="••••••••" />
+                            <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            <label class="form-check-label" asp-for="Input.RememberMe">Remember me</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
+                            Sign In
+                        </button>
+
+                        <div class="text-center text-muted mt-4">
+                            <a id="forgot-password" asp-page="./ForgotPassword" class="text-decoration-none">Forgot password?</a>
+                        </div>
+                    </form>
+
+                    <div class="text-center text-muted mt-4">
+                        Don't have an account?
+                        <a asp-page="./Register" class="text-decoration-none">Sign up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

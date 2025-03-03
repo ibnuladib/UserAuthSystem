@@ -1,0 +1,63 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-lg mt-5">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4">Start your journey</h2>
+                    <h4 class="text-center text-muted mb-4">Create your account</h4>
+
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Email" class="form-label">Email</label>
+                            <input asp-for="Input.Email" class="form-control form-control-lg"
+                                   autocomplete="username"
+                                   aria-required="true"
+                                   placeholder="name@example.com" />
+                            <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Password" class="form-label">Password</label>
+                            <input asp-for="Input.Password" class="form-control form-control-lg"
+                                   autocomplete="new-password"
+                                   aria-required="true"
+                                   placeholder="" />
+                            <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Input.ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control form-control-lg"
+                                   autocomplete="new-password"
+                                   aria-required="true"
+                                   placeholder="" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger small"></span>
+                        </div>
+
+                        <button id="registerSubmit" type="submit"
+                                class="btn btn-primary btn-lg w-100 mb-3">
+                            Create Account
+                        </button>
+
+                        <div class="text-center text-muted mt-4">
+                            Already have an account?
+                            <a asp-page="./Login" class="text-decoration-none">Sign in</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
